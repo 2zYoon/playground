@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Manual: {{ manname }}
+{% endblock %}
+
+{% block content %}
+
+
+    <!-- browse manual items -->
+    {% if manname == 'index'%}
+        <details open>
+    {% else %}
+        <details>
+    {% endif %}
+        <summary><strong>Browse Items</strong></summary>
+        <ul>
+        {% for i in manual_list %}
+            <li><a href="?item={{ i }}">{{ i }}</a></li>
+        {% endfor %}
+        </ul>
+    </details>
+
+    <h1>Manual: {{manname}}</h1>
+
+    <!-- table of contents (only show h2) -->
+    {% if manname != 'index'%}
+        <h3>Contents</h3>
+        <ol>
+        {% for j in h2s %}
+            <li><a class="link2h2">{{ j }}</a></li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+    <!-- main section -->
+    {% block manual %}
+    {% endblock %}
+
+
+{% endblock %}
+
+
+{% block js-back %}
+    <script src="/static/js/auto-id-h2.js" type="text/javascript"></script>
+{% endblock %}

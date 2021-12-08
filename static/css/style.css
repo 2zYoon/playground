@@ -1,0 +1,46 @@
+
+
+/* Navigation */
+nav a {
+    text-decoration: none;
+    color: green;
+}
+nav a:hover {
+    font-weight: bold;
+}
+.nav-span-title {
+    font-weight: bold;
+}
+.nav-span-menu { 
+    float: right; 
+}
+.nav-span-menu a { 
+    text-decoration: none;
+}
+.nav-span-menu a:hover {
+    font-weight: bold;
+}
+.nav-span-menu a:visited {
+    color: green;
+}
+
+/* Global */
+hr {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+pre {
+    background-color: rgb(224, 224, 224);
+    margin: 1.5em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    font-family: Consolas;
+}
+
+code {
+    background-color: rgb(224, 224, 224);
+    padding: 0.125em;
+    border-radius: 0.25em;
+    font-family: Consolas;
+}

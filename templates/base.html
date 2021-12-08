@@ -1,0 +1,48 @@
+<!-- copy and paste to use -->
+{% load static %}
+{% load mathfilters %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <title>
+            {% block title %}
+                PLAYGROUND
+            {% endblock %}
+        </title>
+    </head>
+    <body>
+        {% block js-front %}
+        {% endblock %}
+        <!-- <header include-html="/templates/layout/header.html"></header> -->
+        <header>
+
+        </header>
+        
+        <nav>
+            <span class="nav-span-title"><a href="/">PLAYGROUND</a></span>
+
+            <span class="nav-span-menu"><a href="#"> [MENU] </a>&nbsp;</span>
+            <span class="nav-span-menu"><a href="#"> [MENU] </a>&nbsp;</span>
+            <span class="nav-span-menu"><a href="#"> [MENU] </a>&nbsp;</span>
+            <span class="nav-span-menu"><a href="#"> [MENU] </a>&nbsp;</span>
+            <hr>
+        </nav>
+
+        <section>
+            {% block content %}
+            {% endblock %}
+        </section>
+
+
+        <footer>
+            <hr>
+            <p>awesome footer!</p>
+        </footer>
+    
+        {% block js-back %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,65 @@
+{% extends 'manual/manual-index.html' %}
+
+{% block manual %}
+<h2>App 생성 및 초기 기본 설정</h2>
+먼저 app을 생성한다.
+<pre>
+$ python(3) manage.py startapp [appname]
+</pre>
+
+다음과 같이 <code>[appname]/url.py</code>를 작성한다. <code>path()</code>의 2nd argument에 따라, <code>views.py</code>의 <code>index()</code>함수가 호출된다.
+
+<pre>
+from django.urls import path
+
+from . import views
+
+app_name = '[appname]'
+urlpatterns = [
+    path('', views.index, name='[appname]'),
+]
+</pre>
+
+HTML 문서를 작성한다. <code>templates/[appname]/</code>에 HTML문서를 생성하여 작성한다. <code>base.html</code>은 반드시 extend해준다.
+
+다음과 같이 <code>[appname]/views.py</code>를 작성한다. 문서 내에 표시할 데이터가 있다면 3rd argument에 적당한 dictionary를 넣어준다.
+
+<pre>
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Create your views here.
+def index(request):
+    return render(request, "[appname]/[docname].html", {
+        "item1": 1,
+        "item2": "sample",
+    })
+</pre>
+
+<code>[projectname]/urls.py</code>에 적절한 path를 추가한다.
+
+<pre>
+...
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('index.urls')),
+    path('[appname]/', include('[appname].urls')),
+    ...
+]
+</pre>
+
+<h2>manage.py</h2>
+자주 사용하는 <code>manage.py</code> 명령 모음.
+
+<pre>
+python(3) manage.py [cmd]
+</pre>
+
+<ul>
+    <li><code>startapp [appname]</code>: 새로운 app 생성. </li>
+    <li><code>collectstatic --noinput --clear</code>: 로드했던 static file 초기화. </li>
+    <li><code></code>: </li>
+    
+</ul>
+
+{% endblock %}

@@ -1,2 +1,3 @@
-# playground
-Playground website with Django
+# Playground
+Playground website with Django.
+
