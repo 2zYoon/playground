@@ -1,0 +1,40 @@
+{% extends 'manual/manual-index.html' %}
+
+{% block manual %}
+<h2>rebase: 기존 commit 합치기</h2>
+
+<code>HEAD</code>로부터 <code>N</code>번째 commit에 대해 rebase를 시도한다.
+
+<pre>
+$ git rebase -i HEAD~[N]
+</pre>
+
+이후 열리는 편집기에서 커밋 및 커맨드 목록을 확인할 수 있다.
+
+<pre>
+pick e0e7c2e commit1
+pick 4d65f80 commit2
+pick 6db7c0a commit3
+
+# Rebase b317cd7..6db7c0a onto b317cd7 (3 commands)
+#
+# Commands:
+# p, pick <commit> = use commit
+# r, reword <commit> = use commit, but edit the commit message
+# e, edit <commit> = use commit, but stop for amending
+# s, squash <commit> = use commit, but meld into previous commit
+# f, fixup <commit> = like "squash", but discard this commit's log message
+...
+</pre>
+
+가령 위와 같은 상황에서, <code>commit1</code>로 합치기 위해 <code>squash, s</code> 또는 <code>fixup, f</code>를 사용할 수 있다. 기능은 동일하나 후자는 커밋 메세지에 대한 별도의 처리를 하지 않고 바로 rebase한다.
+
+<pre>
+pick e0e7c2e commit1
+f 4d65f80 commit2
+f 6db7c0a commit3
+</pre>
+
+이후 저장 후 편집기를 빠져 나온다.
+
+{% endblock %}

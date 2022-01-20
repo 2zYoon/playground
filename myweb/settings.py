@@ -86,7 +86,7 @@ with open("myweb/private", "r") as f:
     }
 
     # SECURITY WARNING: keep the secret key used in production secret!
-    SECRET_KEY = rv[2]
+    SECRET_KEY = pv[2]
 
 
 # Password validation
