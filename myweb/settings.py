@@ -37,7 +37,24 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mathfilters',
+    'markdownx',
 ]
+
+MARKDOWNX_MARKDOWN_EXTENSIONS = [
+    'markdown.extensions.extra',
+    'markdown.extensions.toc',
+    'markdown.extensions.codehilite',
+    'markdown.extensions.fenced_code',
+]
+
+MARKDOWNX_MARKDOWN_EXTENSION_CONFIGS = {
+    'markdown.extensions.codehilite': {
+        'linenums': True,
+        'use_pygments': True,
+        'noclasses': True
+    }
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

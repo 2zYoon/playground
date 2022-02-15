@@ -25,6 +25,7 @@ class myparser(HTMLParser):
 
 # Create your views here.
 def index(request):
+
     item = "index"
     try:
         item = request.GET['item']

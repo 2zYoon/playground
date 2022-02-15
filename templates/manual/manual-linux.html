@@ -1,0 +1,17 @@
+{% extends 'manual/manual-index.html' %}
+
+{% block manual %}
+<h2>자주 사용하는 명령어 모음</h2>
+<h3>scp: secure copy via SSH</h3>
+<pre>
+$ scp [options] [file1] [file2] ...  (user)@(ip):(targetdir) 
+</pre>
+
+자주 사용하는 옵션
+<ul>
+    <li><code>-r</code>: 디렉터리에 대해 recursive copy</li>
+    <li><code>-P port</code>: SSH 포트 번호 지정</li>
+</ul>
+
+
+{% endblock %}

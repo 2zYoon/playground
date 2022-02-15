@@ -1,34 +1,39 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<table>
-    <tr>
-        <th>지역</th>
-        <th>장소</th>
-        <th>음식</th>
-        <th>날짜</th>
-        <th>점수</th>
-        <th>리뷰</th>
-    </tr>
-{% for i in items %}
-    <tr>
-        <td>{{i.0}}</td>
-        <td>{{i.1}}</td>
-        <td>{{i.2}}</td>
-        <td>{{i.3|date:"Y-m-d"}}</td>
-        {% if i.4 == 1 %}
-            <td>★</td>
-        {% elif i.4 == 2 %}
-            <td>★★</td>
-        {% elif i.4 == 3 %}
-            <td>★★★</td>
-        {% elif i.4 == 4 %}
-            <td>★★★★</td>
-        {% elif i.4 == 5 %}
-            <td>★★★★★</td>
-        {% endif %}
-        <td>{{i.5}}</td>
-    </tr>
+
+{% for i in meta_cat %}
+    <a href="?cat={{i.0}}"> {{i.0}}</a>
 {% endfor %}
-</table>
+<hr>
+
+{% for i in meta_type %}
+    <a href="?cat={{i.0}}&type={{i.1}}"> {{i.1}}</a>
+{% endfor %}
+<hr>
+
+{% for i in meta_subtype %}
+    <a href="?cat={{i.0}}&type={{i.1}}&sub={{i.2}}"> {{i.2}}</a>
+{% endfor %}
+<hr>
+
+<h2>{{header}} ({{nitems}})</h2>
+
+<ul>
+{% for i in items %}
+    <li><strong>{{i.3}}</strong>
+    {% if i.4 == 1 %}
+        ★
+    {% elif i.4 == 2 %}
+        ★★
+    {% elif i.4 == 3 %}
+        ★★★
+    {% elif i.4 == 4 %}
+        ★★★★
+    {% elif i.4 == 5 %}
+        ★★★★★
+    {% endif %}
+    {{i.5}}</li>
+{% endfor %}
+</ul>
 {% endblock %}
